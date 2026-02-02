@@ -14,7 +14,15 @@ const systemPrompt = `你是 shangchengAI，只回答与德国外管局（Auslä
 
 const keywordPattern = /(德国|外管局|Ausl(a|ä)nderbeh(o|ö)rde|签证|居留|居留许可|入境|签注|延签|拘留|移民|居留卡|居留证|居留权|居留申请)/i;
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let client;
+
+const getClient = () => {
+  if (!client) {
+    client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+
+  return client;
+};
 
 app.post("/api/chat", async (req, res) => {
   const { message } = req.body || {};
@@ -34,7 +42,7 @@ app.post("/api/chat", async (req, res) => {
   }
 
   try {
-    const completion = await client.chat.completions.create({
+    const completion = await getClient().chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         { role: "system", content: systemPrompt },
