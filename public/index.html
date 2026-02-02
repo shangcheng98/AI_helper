@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shangchengAI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">shangchengAI</div>
+        <div class="subtitle">德国外管局专属助手</div>
+        <div class="tips">
+          <h4>可咨询范围</h4>
+          <ul>
+            <li>居留许可、签证、延签</li>
+            <li>外管局预约、材料清单</li>
+            <li>居留卡、入境与居留问题</li>
+          </ul>
+        </div>
+      </aside>
+      <main class="chat">
+        <header class="chat-header">
+          <div>
+            <h1>欢迎使用 shangchengAI</h1>
+            <p>仅回答德国外管局相关问题</p>
+          </div>
+        </header>
+        <section class="messages" id="messages">
+          <div class="message assistant">
+            <div class="bubble">
+              你好！我是 shangchengAI，请告诉我你关于德国外管局的具体问题。
+            </div>
+          </div>
+        </section>
+        <form class="composer" id="chat-form">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="输入你的外管局问题..."
+            autocomplete="off"
+          />
+          <button type="submit">发送</button>
+        </form>
+      </main>
+    </div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
